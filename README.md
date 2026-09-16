@@ -6,7 +6,7 @@ Proje; dinamik ürün sayfaları, scroll tabanlı etkileşimler, teklif formu ve
 
 ## Canlı Demo
 
-Yakında eklenecek.
+[https://nestra-homes.netlify.app](https://nestra-homes.netlify.app)
 
 ## Özellikler
 
