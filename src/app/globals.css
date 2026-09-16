@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-warm-ivory: #f3f0e9;
+  --color-soft-white: #faf9f6;
+  --color-charcoal: #20211f;
+  --color-warm-gray: #74736d;
+  --color-stone: #d8d0c2;
+  --color-olive: #69705a;
+
+  --font-sans: "Instrument Sans Variable", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+/* Reserve the correct story height before hydration; native vertical flow otherwise. */
+.signature-desktop { display: none; }
+.signature-fallback { display: block; }
+@media (min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+  .signature-desktop { display: block; }
+  .signature-fallback { display: none; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-warm-ivory);
+  color: var(--color-charcoal);
+  font-family: "Instrument Sans Variable", sans-serif;
+}
+
+::selection {
+  background: var(--color-olive);
+  color: var(--color-soft-white);
+}
+
+a {
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.2em;
+}
+
+.nestra-nav-link {
+  position: relative;
+}
+.nestra-nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nestra-nav-link:hover::after,
+.nestra-nav-link:focus-visible::after { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .nestra-nav-link::after { transition: none; }
+}

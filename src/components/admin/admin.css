@@ -1,0 +1,31 @@
+.nestra-admin { color: var(--color-charcoal); }
+.nestra-admin :where(a, button, summary, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-charcoal);
+  outline-offset: 3px;
+}
+.nestra-admin :where(input:not([type="checkbox"]):not([type="file"]), select) { min-height: 2.75rem; }
+.nestra-admin :where(input, select, textarea) { border-radius: 2px; }
+.nestra-admin :where(input, select, textarea)[aria-invalid="true"] { border-color: #8a3f32; }
+.nestra-admin :where(input, select, textarea, button):disabled { opacity: .6; cursor: not-allowed; }
+.nestra-admin label { font-weight: 500; }
+.nestra-admin textarea { line-height: 1.6; }
+.nestra-admin [role="status"]:not(:empty) {
+  border-left: 2px solid currentColor;
+  padding: .625rem .75rem;
+  background: var(--color-soft-white);
+}
+.nestra-admin details > summary { list-style: none; }
+.nestra-admin details > summary::-webkit-details-marker { display: none; }
+.nestra-admin details[open] > summary { background: var(--color-warm-ivory); }
+.nestra-admin details[open] > summary .admin-chevron { transform: rotate(180deg); }
+.nestra-admin .admin-chevron { flex-shrink: 0; }
+.nestra-admin .admin-table td, .nestra-admin .admin-table th { overflow-wrap: anywhere; }
+@media (max-width: 1023px) {
+  .nestra-admin .admin-table, .nestra-admin .admin-table tbody { display: block; }
+  .nestra-admin .admin-table thead { display: none; }
+  .nestra-admin .admin-table tr { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); padding: 1rem; gap: .875rem 1rem; }
+  .nestra-admin .admin-table th[scope="row"] { grid-column: 1 / -1; }
+  .nestra-admin .admin-table td, .nestra-admin .admin-table th { display: block; min-width: 0; padding: 0; white-space: normal; }
+  .nestra-admin .admin-table td::before { content: attr(data-label); display: block; margin-bottom: .25rem; font-size: .6875rem; color: var(--color-warm-gray); }
+  .nestra-admin .admin-table td:last-child { font-variant-numeric: tabular-nums; }
+}
